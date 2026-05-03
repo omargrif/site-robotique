@@ -1,169 +1,93 @@
-# Autonomous Solar-Powered Vehicle – Showcase Website
+# Autonomous Solar-Powered Vehicle – Project Notes
 
-An interactive showcase website presenting a comprehensive engineering project: **Auto** – a solar-powered, fully autonomous golf cart designed and built by EMINES engineering students.
+This document gives a practical overview of **Auto**, a solar-powered autonomous golf cart built by EMINES engineering students. It is written to help visitors understand the project without turning the page into a spec sheet.
 
----
+## What the project is about
 
-## Overview
+Auto is a small autonomous vehicle designed around a simple idea: make the platform efficient, safe, and easy to explain. The team worked across mechanics, electrical power, perception, and software integration to build a vehicle that can navigate in controlled environments while harvesting energy from the roof-mounted solar panels.
 
-This project demonstrates a multi-disciplinary approach to sustainable autonomous mobility:
+## Main technical choices
 
-- **Mechanical Engineering**: Optimized chassis, suspension, braking, and steering systems
-- **Electrical & Power Management**: 48V lithium-ion battery, solar panel integration, MPPT charge controller
-- **AI & Autonomous Navigation**: Multi-sensor fusion (LiDAR, camera, IMU), real-time path planning
-- **Systems Integration**: Seamless coordination between mechanical, electrical, and software subsystems
+- **Chassis and mechanics**: suspension, steering, braking, and wheel layout designed for a compact vehicle
+- **Power system**: 48V lithium-ion battery with solar charging support and MPPT regulation
+- **Perception**: camera, LiDAR, and IMU combined to improve navigation and safety
+- **Software integration**: a control loop that turns sensor data into navigation decisions
 
----
+## Key technical data
 
-## Technical Specifications
+### Vehicle
+- Type: solar-powered golf cart
+- Maximum speed: 30 km/h
+- Range: about 40 km, depending on solar conditions
+- Vehicle weight: 460 kg
+- Capacity: 2 passengers
 
-### Vehicle Platform
-- **Type**: Solar-Powered Golf Cart (Golfette)
-- **Max Speed**: 30 km/h
-- **Autonomy Range**: 40 km minimum (solar conditions dependent)
-- **Payload Capacity**: 2 passengers (~80 kg each)
-- **Total Vehicle Weight**: 460 kg
-- **Dimensions**: 2 m length, optimized urban footprint
+### Drivetrain and mechanics
+- Motor: 1.2 kW electric motor
+- Torque: 50 N⋅m
+- Suspension: double-wishbone with spring-damper architecture
+- Steering: rack-and-pinion with Ackermann geometry
+- Braking: hydraulic system with emergency stop support
 
-### Drivetrain & Mechanics
-- **Motor**: 1.2 kW electric motor (50 N⋅m torque)
-- **Transmission**: Direct drive, smooth acceleration profile
-- **Suspension**: Double-wishbone A-arm + spring-damper (150 mm travel)
-- **Steering**: Rack-and-pinion with Ackermann geometry
-- **Braking**: Hydraulic redundancy + AI-controlled emergency stop
-- **Wheels**: 0.45 m radius, optimized for urban maneuverability
+### Energy system
+- Battery: 48V lithium-ion, 15 kWh
+- Solar array: 4 m² of monocrystalline panels
+- Peak solar output: 600 W
+- Charge control: MPPT
 
-### Power & Energy Systems
-- **Battery**: 48V lithium-ion, 15 kWh capacity
-- **Solar Array**: 4 m² monocrystalline panels (22% efficiency, 600 W peak)
-- **Energy Production**: ~800 Wh/day (weather-dependent)
-- **Charge Controller**: MPPT (Maximum Power Point Tracking) for optimal solar conversion
-- **Supply Voltage**: 48V DC distributed architecture
+### Navigation and safety
+- LiDAR range: 10 m
+- Camera: 1280×720 at 30 fps
+- IMU: 9-axis sensor
+- Control loop: 30 Hz
+- Latency target: below 50 ms
 
-### Autonomous Navigation System
-- **Sensor Stack**:
-  - 2D LiDAR (10 m range, obstacle detection)
-  - 1280×720 front camera @30 fps (lane detection)
-  - 9-axis IMU (orientation & acceleration feedback)
-  
-- **AI Processing**:
-  - Canny edge detection + Hough transform for lane marking
-  - Multi-sensor fusion (camera, LiDAR, IMU)
-  - Real-time control loop: 30 Hz, <50 ms latency
-  - Exponential smoothing for trajectory stability
-  
-- **Safety Features**:
-  - Autonomous emergency braking on obstacle detection
-  - Manual override capability
-  - Validated on controlled test environments
+## Website structure
 
-### Validated Capabilities
-- Max slope: 8% (4.57°)
-- Turning radius: Optimized for urban navigation
-- FEA & CFD simulations: Full structural and aerodynamic validation
-- Safety protocols: Emergency braking, stability tests
+- `index.html`: home page and overview
+- `projet.html`: technical presentation
+- `brainstorming.html`: early ideas and requirements
+- `conception.html`: CAD, design, and electrical work
+- `fabrication.html`: assembly and build process
+- `fonctionnalite.html`: autonomous behaviour and features
+- `equipe.html`: team and supervision
+- `contact.html`: contact details
+- `forum.html`: discussion space
+- `a-developper.html`: future improvements
 
----
+## Assets and interface
 
-## Website Architecture
+- `styles.css`: responsive layout and visual design
+- `chatbot-kb.js`: navigation helper for the website content
+- `photos/`: the organized image library used across the pages
 
-### Content Structure
-- **`index.html`** – Main landing page with carousel, overview sections
-- **`projet.html`** – Technical specifications & core systems
-- **`brainstorming.html`** – Project ideation & requirements analysis
-- **`conception.html`** – 3D CAD models, FEA simulations, electrical schematics
-- **`fabrication.html`** – Build process, assembly documentation, real-world testing
-- **`fonctionnalite.html`** – Autonomous driving features & capabilities
-- **`equipe.html`** – 13-member team profiles + 5 faculty advisors
-- **`contact.html`** – Contact form & EMINES information
-- **`forum.html`** – Community discussion & feedback
-- **`a-developper.html`** – Planned future improvements
+## Team and context
 
-### Interactive Features
-- **`chatbot-kb.js`** – AI-powered navigation assistant with 60+ Q&A pairs covering all technical aspects
-- **Dark Mode Toggle** – Accessibility & user preference support
-- **Image Carousel** – Dynamic gallery rotation through project phases
-- **Responsive Design** – Mobile-first, desktop optimized
-- **Organized Asset Library** – `/photos/` folder with 83 organized project images
+- Project lead: Rayane Bentaleb
+- Mechanical systems: Ahmed Lebbar
+- Safety and compliance: Anass Benbella
+- Electrical engineering: Ali Ennoulali
+- Systems integration: Mohammed El Abirdi
+- Faculty advisors: Abdelkrim Alahyane, Anas Cherradi, Youssef Derrazi, Mohamed Lahnine, Mostafa Baba
 
-### Styling
-- **`styles.css`** – Modular CSS3 with CSS variables for theming, animations, responsive breakpoints
+Institution: EMINES – School of Industrial Management (UM6P, Ben Guerir, Morocco)
 
----
+## How to use this repository
 
-## Project Team
+1. Open `index.html` in a browser, or
+2. Serve the `site/` folder locally during development
 
-- **Project Lead**: Rayane Bentaleb
-- **Mechanical Systems**: Ahmed Lebbar
-- **Safety & Compliance**: Anass Benbella
-- **Electrical Engineering**: Ali Ennoulali
-- **Systems Integration**: Mohammed El Abirdi
-- **Faculty Advisors**: Abdelkrim Alahyane, Anas Cherradi, Youssef Derrazi, Mohamed Lahnine, Mostafa Baba
+Example:
 
-**Institution**: EMINES – School of Industrial Management (UM6P, Ben Guerir, Morocco)
-**Project Module**: Mécatronique (Mechatronics Engineering)
-**Academic Year**: 2025–2026
+```bash
+python -m http.server 8000
+```
 
----
+Then open the local address shown by the server.
 
-## Technologies & Tools
+## Contact
 
-### Frontend
-- HTML5 (semantic markup)
-- CSS3 (flexbox, grid, animations)
-- Vanilla JavaScript (DOM manipulation, event handling)
+- Email: robotique25_26_voiture@um6p.onmicrosoft.com
+- Institution: EMINES – UM6P, Ben Guerir, Morocco
 
-### Project Development
-- CAD: SolidWorks (3D modeling)
-- Simulation: FEA (structural), CFD (aerodynamics), SPICE (electrical)
-- Motor Control: PWM drivers, real-time feedback loops
-- ROS 2: Future autonomous stack (planned)
-
----
-
-## Getting Started
-
-### Quick Start
-1. Download or clone the repository
-2. Open `index.html` in any modern web browser
-3. Navigate using the top menu or explore each section
-
-### Development
-- **Live Server**: Use VS Code Live Server extension for auto-refresh during development
-- **Dark Mode Testing**: Toggle theme button to verify CSS variables
-- **Mobile Testing**: Use browser DevTools responsive mode (375px – 1920px+)
-
----
-
-## Key Highlights
-
-✅ **Fully Functional Prototype**: 20 km/h autonomous capability validated
-✅ **Solar Integration**: Real-time energy harvesting from roof panels
-✅ **Multi-Sensor Fusion**: Robust perception under varied conditions
-✅ **Safety-First Design**: Redundant braking, emergency protocols
-✅ **Educational Excellence**: Demonstrates integrated systems thinking
-✅ **Scalable Architecture**: Foundation for future autonomous vehicle research
-
----
-
-## Project Impact
-
-This vehicle demonstrates how constraints-based engineering (solar power, limited weight, urban footprint) drives innovation. The project serves as a teaching tool for:
-- Interdisciplinary systems design
-- Real-world prototyping methodology
-- AI integration in embedded systems
-- Sustainable mobility solutions
-
----
-
-## Contact & Collaboration
-
-For questions, collaboration opportunities, or technical discussions:
-- **Email**: robotique25_26_voiture@um6p.onmicrosoft.com
-- **Institution**: EMINES – UM6P, Ben Guerir, Morocco
-- **Website**: This showcase (contact form available)
-
----
-
-*Last Updated: May 2026*
-*License: See LICENSE file for details*
+*Last updated: May 2026*
