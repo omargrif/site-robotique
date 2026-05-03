@@ -62,15 +62,6 @@ Auto is a small autonomous vehicle designed around a simple idea: make the platf
 - `photos/`: the organized image library used across the pages
 - The site is static and works locally without a backend or external API
 
-## Team and context
-
-- Project lead: Rayane Bentaleb
-- Mechanical systems: Ahmed Lebbar
-- Safety and compliance: Anass Benbella
-- Electrical engineering: Ali Ennoulali
-- Systems integration: Mohammed El Abirdi
-- Faculty advisors: Abdelkrim Alahyane, Anas Cherradi, Youssef Derrazi, Mohamed Lahnine, Mostafa Baba
-
 Institution: EMINES – School of Industrial Management (UM6P, Ben Guerir, Morocco)
 
 ## How to use this repository
