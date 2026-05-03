@@ -47,8 +47,8 @@
         <div class="hero-text">
           <h1>Conception d’une voiture<br />solaire autonome</h1>
           <p>
-            Découvrez, à travers ce guide, tout ce qui fait d'Auto une voiture pas
-            comme les autres : électrique, solaire et autonome.
+            Découvrez Auto à travers ce site : un véhicule pensé pour être plus
+            propre, plus intelligent et plus autonome.
           </p>
           <a class="btn primary" href="#projet">Explorer le projet</a>
         </div>
@@ -95,15 +95,20 @@
         <div>
           <h2>Contexte général</h2>
           <p>
-            Auto nous a réunis ensemble, 13 personnes qui ont travaillé durant toute l'année.
+            Auto est le fruit du travail de 13 étudiants qui ont uni leurs compétences
+            pendant toute l’année.
           </p>
           <p>
-            Plongez au cœur de notre projet et explorez chaque étape de son développement, des moments captivants de conception aux instants palpitants de fabrication, en passant même par les séances créatives de brainstorming.
+            Ce site présente l’essentiel du projet : sa conception, sa fabrication,
+            son système de perception et sa gestion énergétique.
           </p>
-          <p>
-            Notre parcours vous dévoilera les coulisses de la création, où chaque idée prend forme dans un processus fascinant. Suivez-nous à travers cette aventure artistique et technique.
-          </p>
-          <a class="link" href="#context">See more informations →</a>
+          <ul class="feature-list">
+            <li>Vitesse maximale : 30 km/h</li>
+            <li>Autonomie visée : environ 40 km</li>
+            <li>Alimentation : batterie 48 V et panneaux solaires</li>
+            <li>Perception : caméra, LiDAR et IMU</li>
+          </ul>
+          <a class="link" href="#projet">En savoir plus →</a>
         </div>
         <div>
           <div class="carousel-wrapper">
@@ -129,7 +134,7 @@
     <section id="projet" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Le Coeur de Notre Conception</h2>
+          <h2>Le cœur de notre conception</h2>
           <p class="muted">Architecture, perception et gestion énergétique présentées clairement.</p>
         </div>
         <div class="feature-rows">
@@ -152,21 +157,19 @@
           </article>
           <article class="feature-row reverse">
             <div class="feature-text">
-              <h3>Intelligence Artificielle &amp; Perception</h3>
+              <h3>Intelligence artificielle et perception</h3>
               <p>
-                Le système de conduite autonome est basé sur une architecture de fusion de données multi-capteurs visant à améliorer la perception et la robustesse décisionnelle du véhicule.
+                Le système de conduite autonome repose sur une fusion de données entre
+                la caméra, le LiDAR et l’IMU. La caméra détecte les marquages au sol,
+                tandis que le LiDAR aide à repérer les obstacles et à sécuriser la
+                trajectoire.
               </p>
-              <p>
-                La vision par ordinateur, implémentée en Python, exploite une caméra frontale pour la détection des marquages au sol à l'aide des algorithmes de Canny pour l'extraction des contours et de Hough pour l'identification des lignes, permettant une estimation fiable de la trajectoire. En complément, un capteur LiDAR est utilisé pour la cartographie tridimensionnelle de l'environnement et la détection d'obstacles.
-              </p>
-              <p class="muted">
-                L'ensemble du système est alimenté par une architecture énergétique solaire en 48 V, assurant une alimentation stable et optimisée des composants embarqués tout en favorisant l'autonomie énergétique du véhicule.
-              </p>
-              <p>
-                Fusion de données multi-capteurs pour améliorer la perception : caméra
-                frontale, détection de marquages et lidar pour une trajectoire fiable.
-              </p>
-              <p class="muted">Estimation de trajectoire, détection d’obstacles, robustesse en temps réel.</p>
+              <ul class="feature-list">
+                <li>Détection des lignes avec Canny et Hough</li>
+                <li>Fusion caméra / LiDAR / IMU</li>
+                <li>Boucle de contrôle à 30 Hz</li>
+                <li>Latence inférieure à 50 ms</li>
+              </ul>
             </div>
             <div class="image-card">
               <img src="photos/photo-047.png" alt="Electronique" />
@@ -195,7 +198,7 @@
 
     <section id="equipe" class="section">
       <div class="container">
-        <h2>Equipe</h2>
+        <h2>Équipe</h2>
         <div class="team">
           <div class="member">
             <img src="photos/photo-039.svg" alt="Rayane Bentaleb" />
@@ -303,7 +306,7 @@
   </footer>
 
   <div class="chatbot-widget">
-    <button class="chatbot-btn" id="chatbotToggle" aria-label="Open chatbot" title="Auto assistant">💬</button>
+    <button class="chatbot-btn" id="chatbotToggle" aria-label="Open chatbot" title="Auto assistant">Assistant</button>
     <div class="chatbot-window" id="chatbotWindow">
       <div style="padding: 14px; background: linear-gradient(135deg, #6d4bf4, #3b6df5); color: #fff; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
         <span>Auto assistant</span>
@@ -311,7 +314,7 @@
       </div>
       <div id="chatMessages" style="flex: 1; padding: 14px; overflow-y: auto; color: var(--text); display: flex; flex-direction: column; gap: 10px;">
         <div style="background: var(--soft); padding: 10px; border-radius: 8px; font-size: 13px; color: var(--text);">
-          Bienvenue! 👋 Je suis Auto assistant. Posez-moi vos questions sur notre voiture solaire autonome.
+          Bienvenue ! Je suis Auto assistant. Posez-moi vos questions sur notre voiture solaire autonome.
         </div>
       </div>
       <div style="padding: 10px; border-top: 1px solid var(--border); display: flex; gap: 8px;">

@@ -5,7 +5,7 @@ const CHATBOT_KB = {
     name: "EMINES – School of Industrial Management",
     location: "Université Mohammed VI Polytechnique (UM6P), Ben Guerir, Maroc",
     philosophy: "Formation d'ingénieurs-managers par le 'Learning by Doing'",
-    module: "Projet de Mécatronique (Mectro)",
+    module: "Projet de Mécatronique",
     founded: 2014,
     generalDirector: "Nicolas Cheimanoff"
   },
@@ -25,8 +25,8 @@ const CHATBOT_KB = {
   // FAQ - Enhanced with 60+ QA pairs covering all aspects
   faq: [
     // === QUESTIONS GÉNÉRALES ===
-    { keywords: ["bonjour", "hello", "salut", "hi"], answer: "Bonjour! 👋 Je suis Auto assistant. Posez vos questions sur notre voiture solaire autonome, l'équipe, ou EMINES!" },
-    { keywords: ["merci", "thanks", "thank you"], answer: "De rien! 😊 D'autres questions sur Auto ou EMINES?" },
+    { keywords: ["bonjour", "hello", "salut", "hi"], answer: "Bonjour. Je suis Auto assistant. Posez vos questions sur notre voiture solaire autonome, l'équipe ou EMINES." },
+    { keywords: ["merci", "thanks", "thank you"], answer: "De rien. D'autres questions sur Auto ou EMINES ?" },
     { keywords: ["comment", "how", "pourquoi", "why"], answer: "Posez votre question! Je peux aider avec : spécifications, équipe, IA, énergie solaire, EMINES." },
 
     // === PROJET AUTO - GÉNÉRAL ===
@@ -83,13 +83,14 @@ const CHATBOT_KB = {
     { keywords: ["partenariat", "mines", "ocpgroup"], answer: "Partenaires : MINES ParisTech, Paris Dauphine, Paris Nanterre, Hassan II, Cadi Ayyad, OCP Group." },
 
     // === QUESTIONS DE TEST ===
-    { keywords: ["innovation", "unique", "nouveau"], answer: "Innovation : combinaison énergie solaire + autonomie IA + design compact. Première type projet!" },
+    { keywords: ["innovation", "unique", "nouveau"], answer: "Innovation : combinaison énergie solaire + autonomie IA + design compact. C'est un projet original." },
+    { keywords: ["site", "backend", "api", "local"], answer: "Le site est statique et fonctionne en local. Le chatbot s'appuie sur une base de connaissances embarquée, sans API externe." },
     { keywords: ["futur", "amélioration", "suite"], answer: "Futures améliorations : puissance solaire, GPS, meilleure batterie, tests routes réelles complexes." },
     { keywords: ["contact", "email", "information"], answer: "Contactez via formulaire site. Répondrons questions détaillées. Visite virtuelle disponible!" },
     { keywords: ["test", "validation", "essai"], answer: "Tests FEA, CFD, SPICE, autonomie environnement contrôlé, freinage/stabilité. Exhaustif!" },
     { keywords: ["fabrication", "processus", "construction"], answer: "Processus : CAO SolidWorks → Simulations (FEA/CFD) → Intégration → Tests → Optimisation itérative." },
     { keywords: ["difficile", "complexe", "challenge"], answer: "Défis : optimiser poids/énergie, intégrer IA + capteurs limités, assurer sécurité. Réussi travail équipe!" },
-    { keywords: ["merveilleux", "amazing", "fantastique"], answer: "Merci! 🙏 L'intégration solaire+autonomie vraiment innovante. Autres questions?" }
+    { keywords: ["merveilleux", "amazing", "fantastique"], answer: "Merci. L'intégration solaire et autonomie est vraiment innovante. Autres questions ?" }
   ]
 };
 
@@ -107,7 +108,7 @@ function findAnswer(userQuestion) {
   const normalizedQuestion = normalizeText(userQuestion);
   
   if (!userQuestion.trim()) {
-    return "Bonjour! 👋 Posez votre question sur Auto ou EMINES!";
+    return "Bonjour. Posez votre question sur Auto ou EMINES.";
   }
 
   let bestMatch = null;
@@ -139,10 +140,10 @@ function findAnswer(userQuestion) {
 
   // Better fallbacks
   const fallbacks = [
-    "Je ne reconnais pas cette question. Essayez : vitesse, batterie, LIDAR, caméra, équipe, ou EMINES!",
-    "Pas sûr... Posez sur le véhicule, l'IA, énergie solaire, ou l'école!",
-    "Désolé, pas dans ma base. Je reconnais : spécifications techniques, équipe G6, systèmes, EMINES!",
-    "Hmm, c'est une bonne question! Pouvez-vous reformuler? Je maîtrise détails techniques!"
+    "Je ne reconnais pas cette question. Essayez : vitesse, batterie, LiDAR, caméra, équipe ou EMINES.",
+    "Pas sûr. Posez une question sur le véhicule, l'IA, l'énergie solaire ou l'école.",
+    "Désolé, ce point n'est pas dans ma base. Je reconnais surtout les spécifications techniques, l'équipe G6 et EMINES.",
+    "Bonne question. Pouvez-vous reformuler ? Je maîtrise surtout les détails techniques."
   ];
 
   return fallbacks[Math.floor(Math.random() * fallbacks.length)];

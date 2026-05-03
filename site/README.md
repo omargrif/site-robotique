@@ -60,6 +60,7 @@ Auto is a small autonomous vehicle designed around a simple idea: make the platf
 - `styles.css`: responsive layout and visual design
 - `chatbot-kb.js`: navigation helper for the website content
 - `photos/`: the organized image library used across the pages
+- The site is static and works locally without a backend or external API
 
 ## Team and context
 
