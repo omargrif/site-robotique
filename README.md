@@ -1,71 +1,172 @@
-# 🤖 Gestion des litiges — Workflow n8n de support client (multimodal)
+# Autonomous Solar-Powered Vehicle – Showcase Website
 
-Workflow **n8n** orienté “production” pour traiter automatiquement des requêtes support/litiges reçues sur **Telegram** (texte / photo / audio), enrichir le contexte client (Supabase), puis décider d’une action (**réponse automatique** ou **escalade**) via un LLM.
+An interactive showcase website presenting a comprehensive engineering project: **Auto** – a solar-powered, fully autonomous golf cart designed and built by EMINES engineering students.
 
-## Ce que ce projet démontre (recrutement)
+---
 
-- Orchestration n8n (routing, branches multimodales, merge, actions)
-- Intégration APIs (Telegram, Groq/OpenAI-compatible, OpenRouter, Supabase)
-- Traitement multimodal (Vision + transcription)
-- Conception d’un routeur IA (prompting, JSON strict, fallback robuste)
-- Logging / audit (tickets) et escalade (Slack / Gmail optionnels)
+## Overview
 
-## Architecture (résumé)
+This repository contains the **interactive showcase website** for the Auto solar vehicle project. It demonstrates a multi-disciplinary approach to sustainable autonomous mobility through engaging web design and interactive documentation.
 
-```mermaid
-flowchart LR
-	T[Telegram Trigger] --> N[Normalize Input]
-	N --> S1{Switch Type}
-	S1 -->|text| TXT[Set Unified Text]
-	S1 -->|photo| P1[Telegram getFile] --> P2[Download] --> V[Vision (OpenRouter)] --> VP[Parse]
-	S1 -->|audio| A1[Telegram getFile] --> A2[Download] --> TR[Transcription (Groq Whisper)] --> AP[Parse]
-	TXT --> DB[Supabase: Get client]
-	VP --> DB
-	AP --> DB
-	DB --> C[Build Context] --> LLM[Decision LLM (Groq)] --> PD[Parse Decision JSON]
-	PD --> S2{Switch Action}
-	S2 -->|auto_reply| R1[Telegram reply] --> LOG1[Supabase: ticket log]
-	S2 -->|escalate| SL[Slack alert] --> ACK[Telegram ack] --> LOG2[Supabase: ticket log]
+### Project Scope
+- **Mechanical Engineering**: Optimized chassis, suspension, braking, and steering systems
+- **Electrical & Power Management**: 48V lithium-ion battery, solar panel integration, MPPT charge controller
+- **AI & Autonomous Navigation**: Multi-sensor fusion (LiDAR, camera, IMU), real-time path planning
+- **Systems Integration**: Seamless coordination between mechanical, electrical, and software subsystems
+
+---
+
+## Quick Links
+
+- **Live Website**: Open `site/index.html` in your browser
+- **Project Documentation**: See [site/README.md](site/README.md) for full technical specifications
+- **Team Information**: [site/equipe.html](site/equipe.html)
+- **Contact**: [site/contact.html](site/contact.html)
+
+---
+
+## Repository Structure
+
+```
+.
+├── site/                          # Interactive showcase website
+│   ├── index.html                 # Main landing page
+│   ├── projet.html                # Technical specifications
+│   ├── brainstorming.html         # Project ideation
+│   ├── conception.html            # 3D models & CAD
+│   ├── fabrication.html           # Build process
+│   ├── fonctionnalite.html        # Autonomous features
+│   ├── equipe.html                # Team profiles
+│   ├── contact.html               # Contact form
+│   ├── forum.html                 # Discussion forum
+│   ├── a-developper.html          # Future improvements
+│   ├── styles.css                 # Responsive styling
+│   ├── chatbot-kb.js              # AI navigation assistant
+│   ├── photos/                    # 83 organized project images
+│   └── README.md                  # Technical documentation
+├── README.md                       # This file
+└── LICENSE                        # Project license
 ```
 
-## Fichiers importants
+---
 
-- n8n/workflows/workflow.json : définition du workflow (sans secrets; utilise des variables d’environnement)
-- docs/workflow-setup.md : guide “pas à pas” des nœuds + configuration
-- docs/supabase-schema.sql : schéma SQL minimal (`clients`, `tickets`)
-- docs/screenshots/ : captures d’écran à déposer pour la vitrine GitHub
+## Technical Specifications (Quick Reference)
 
-## Démarrage rapide
+### Vehicle Platform
+- **Type**: Solar-Powered Golf Cart (Golfette)
+- **Max Speed**: 30 km/h
+- **Autonomy**: 40 km (solar-dependent)
+- **Weight**: 460 kg
+- **Payload**: 2 passengers (~80 kg each)
 
-1. Importer le workflow : dans n8n → **Import workflow** → importer le fichier n8n/workflows/workflow.json
-2. Renseigner les variables : partir de .env.example (ou credentials n8n)
-3. Créer les tables Supabase : exécuter docs/supabase-schema.sql
-4. Activer le trigger Telegram et tester (texte, photo, audio)
+### Powertrain
+- **Motor**: 1.2 kW electric motor (50 N⋅m torque)
+- **Battery**: 48V lithium-ion, 15 kWh
+- **Solar Array**: 4 m² monocrystalline panels (22% efficiency, 600 W peak)
 
-## Demo (à montrer en entretien)
+### Autonomous Navigation
+- **Sensors**: 2D LiDAR (10 m), 1280×720 camera @30 fps, 9-axis IMU
+- **AI Processing**: Canny edge detection, Hough transform, multi-sensor fusion
+- **Control Loop**: 30 Hz, <50 ms latency
+- **Safety**: Autonomous emergency braking, obstacle detection
 
-- Exemples anonymisés (inputs / décisions / actions): docs/demo-examples.md
-- Recommandation: enregistrer un GIF (30–45s) montrant un message texte + un vocal + une photo, et la création du ticket côté Supabase.
+---
 
-## Screenshots
+## Getting Started
 
-Des diagrammes SVG (propres) sont déjà fournis dans `docs/screenshots/`. Tu peux les remplacer par des captures n8n réelles si tu veux.
+### View the Website
+1. Navigate to the `site/` folder
+2. Open `site/index.html` in any modern web browser
+3. Explore the project through interactive sections
 
-Décommente/active les images ci-dessous :
+### Local Development
+```bash
+# Use VS Code Live Server extension for auto-refresh
+# Or use Python's built-in server:
+cd site
+python -m http.server 8000
+# Visit http://localhost:8000
+```
 
-<!--
-![Workflow overview](docs/screenshots/workflow-overview.svg)
-![Text branch](docs/screenshots/workflow-text-branch.svg)
-![Photo branch](docs/screenshots/workflow-photo-branch.svg)
-![Audio branch](docs/screenshots/workflow-audio-branch.svg)
-![Supabase tables](docs/screenshots/supabase-tables.svg)
--->
+### Features
+- ✨ Responsive design (mobile to desktop)
+- 🌙 Dark mode toggle
+- 💬 AI chatbot with 60+ Q&A pairs
+- 📸 Image carousel
+- 📱 Touch-optimized navigation
 
-## Sécurité
+---
 
-- Aucun token n’est commité : le workflow référence des variables (ex: `TELEGRAM_BOT_TOKEN`, `GROQ_API_KEY`, `OPENROUTER_API_KEY`).
-- Les logs `tickets` sont volontairement minimaux : adapte la rétention et l’anonymisation selon ton contexte.
+## Project Team
 
-## Note
+**Lead Engineers**:
+- Rayane Bentaleb (Project Lead)
+- Ahmed Lebbar (Mechanical Systems)
+- Anass Benbella (Safety & Compliance)
+- Ali Ennoulali (Electrical Engineering)
+- Mohammed El Abirdi (Systems Integration)
 
-Ce dépôt contient aussi un site vitrine indépendant dans le dossier site/ (voir site/README.md).
+**Faculty Advisors**: Abdelkrim Alahyane, Anas Cherradi, Youssef Derrazi, Mohamed Lahnine, Mostafa Baba
+
+**Institution**: EMINES – School of Industrial Management (UM6P, Ben Guerir, Morocco)
+**Project Module**: Mécatronique (Mechatronics Engineering)
+**Academic Year**: 2025–2026
+
+---
+
+## Key Achievements
+
+✅ Fully functional prototype (20 km/h autonomous capability)
+✅ Solar panel integration with real-time energy harvesting
+✅ Multi-sensor perception system validated
+✅ Safety-critical systems with redundancy
+✅ Comprehensive documentation & interactive showcase
+✅ Educational foundation for future AV research
+
+---
+
+## Technologies
+
+### Frontend
+- HTML5 (semantic markup)
+- CSS3 (flexbox, grid, animations, dark mode)
+- Vanilla JavaScript (DOM, events, state management)
+
+### Development Tools
+- CAD: SolidWorks
+- Simulation: FEA, CFD, SPICE
+- Version Control: Git / GitHub
+
+---
+
+## Browser Support
+
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+---
+
+## Documentation
+
+For comprehensive technical specifications, system architecture, and design details, see [site/README.md](site/README.md).
+
+---
+
+## Contact & Collaboration
+
+- **Email**: robotique25_26_voiture@um6p.onmicrosoft.com
+- **Institution**: EMINES – UM6P, Ben Guerir, Morocco
+- **Website**: Interactive showcase available in this repository
+
+---
+
+## License
+
+See [LICENSE](LICENSE) file for details.
+
+---
+
+*Last Updated: May 2026*
+*Project Status: Production Ready*
